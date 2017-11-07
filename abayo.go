@@ -53,7 +53,6 @@ func main() {
 		return
 	}
 	// delete listを作る
-	//var delete_list []string
 	var delete_list []int
 
 	for num, res := range result.ImageIds {
@@ -66,7 +65,6 @@ func main() {
 			RepositoryName: aws.String(repository),
 		}
 		// 配列に追加していく(最後に数を出すため)
-		//delete_list = append(delete_list, *res.ImageDigest)
 		delete_list = append(delete_list, num)
 
 		_, err := svc.BatchDeleteImage(delete_image_input)
@@ -92,6 +90,5 @@ func main() {
 		//number := num
 	}
 
-	//fmt.Printf("削除したイメージ数: %d個\n", len(delete_list))
 	fmt.Printf("あばよ!!%d個のイメージ達!!\n", len(delete_list))
 }
